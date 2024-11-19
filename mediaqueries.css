@@ -53,6 +53,8 @@
     }
     .social_icons{
         margin-top: 2em;
+        display:flex;
+        justify-content:space-between;
     }
     .featured-image{
         order: 1;
