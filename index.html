@@ -11,7 +11,15 @@
 
     <!-- --------- CSS ---------- -->
     <link rel="stylesheet" href="style.css">
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaqueries.css">
+
+    <!-- --------- META TAGS ---------- -->
+    <meta name="description"
+        content="Portfolio of Taha Hemdan, a Full Stack Web Developer specializing in PHP, MySQL, and Modern Web Technologies.">
+    <meta name="keywords" content="Taha Hemdan, Full Stack Developer, Web Developer, PHP, Laravel, Portfolio">
+
 
     <!-- --------- FAVICON ---------- -->
     <link rel="shortcut icon" href="favicon.jpg" type="image/jpeg">
@@ -20,6 +28,14 @@
 </head>
 
 <body>
+    <!-- Background Objects for Glassmorphism depth -->
+    <div
+        style="position:fixed; width:300px; height:300px; background:var(--first-color); border-radius:50%; filter:blur(100px); opacity:0.2; top:10%; left:-100px; z-index:-1;">
+    </div>
+    <div
+        style="position:fixed; width:300px; height:300px; background:var(--second-color); border-radius:50%; filter:blur(100px); opacity:0.2; bottom:10%; right:-100px; z-index:-1;">
+    </div>
+
     <div class="container">
         <!-- --------------- HEADER --------------- -->
         <nav id="header">
@@ -46,6 +62,7 @@
                         <div class="circle"></div>
                     </li>
                 </ul>
+                <i class="uil uil-moon change-theme" id="theme-button"></i>
             </div>
             <div class="nav-button">
                 <button class="btn">Download CV <i class="uil uil-file-alt"></i></button>
@@ -121,8 +138,10 @@
                     <div class="col">
                         <div class="about-info">
                             <h3>My introduction</h3>
-                            <p>"I'm a professional Full Stack web developer with experience in developing applications and
-                                projects using modern technologies like PHP, MySQL, JavaScript, and other tools that enable
+                            <p>"I'm a professional Full Stack web developer with experience in developing applications
+                                and
+                                projects using modern technologies like PHP, MySQL, JavaScript, and other tools that
+                                enable
                                 me to build integrated solutions for web projects."
                             </p>
                             <div class="about-btn">
@@ -141,8 +160,8 @@
                                 <span>Bootstrap</span>
                                 <span>JavaScript</span>
                                 <span>jQuery</span>
-                                
-                               
+
+
                             </div>
                         </div>
                         <div class="skills-box">
@@ -153,7 +172,7 @@
                                 <span>PHP</span>
                                 <span>AJAX</span>
                                 <span>LARAVEL</span>
-                                
+
                             </div>
                         </div>
                         <div class="skills-box">
@@ -204,24 +223,25 @@
                     <div class="col">
                         <div class="contact-info">
                             <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
-                            <p><a href="mailto:mhmtdh362@gmail.com" class="social-link"><i class="uil uil-envelope"> Email: mhmtdh362@gmail.com</i></a></p>
-                            <p><a href="tel:+20 0100 782 6619" class="social-link"><i class="uil uil-phone"> Tel: +20 0100 782 6619</i></a></p>
+                            <p><a href="mailto:mhmtdh362@gmail.com" class="social-link"><i class="uil uil-envelope">
+                                        Email: mhmtdh362@gmail.com</i></a></p>
+                            <p><a href="tel:+20 0100 782 6619" class="social-link"><i class="uil uil-phone"> Tel: +20
+                                        0100 782 6619</i></a></p>
                         </div>
                     </div>
 
+
                     <div class="col">
                         <form action="https://formspree.io/f/mjkvoboj" method="POST">
-                            <div class="form-control">
-                                <div class="form-inputs">
-                                    <input type="text" name="name" class="input-field" placeholder="Name">
-                                    <input type="text" name="email" class="input-field" placeholder="Email">
-                                </div>
-                                <div class="text-area">
-                                    <textarea name="message" placeholder="Message"></textarea>
-                                </div>
-                                <div class="form-button">
-                                    <button type="submit" class="btn">Send <i class="uil uil-message"></i></button>
-                                </div>
+                            <div class="form-input-group">
+                                <input type="text" name="name" class="input-field" placeholder="Name">
+                                <input type="text" name="email" class="input-field" placeholder="Email">
+                            </div>
+                            <div class="text-area">
+                                <textarea name="message" placeholder="Message"></textarea>
+                            </div>
+                            <div class="form-button">
+                                <button type="submit" class="btn">Send <i class="uil uil-message"></i></button>
                             </div>
                         </form>
 
@@ -257,8 +277,7 @@
                 <a href="https://www.facebook.com/TahaHemdanFarag" class="social-link" target="_blank">
                     <div class="icon"><i class="uil uil-facebook-f"></i></div>
                 </a>
-                <a href="https://www.linkedin.com/in/taha-hemdan-b8886a210/" class="social-link"
-                    target="_blank">
+                <a href="https://www.linkedin.com/in/taha-hemdan-b8886a210/" class="social-link" target="_blank">
                     <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
                 </a>
                 <a href="mailto:mhmtdh362@gmail.com" class="social-link" target="_blank">
