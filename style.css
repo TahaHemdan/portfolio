@@ -150,6 +150,7 @@ nav {
 .nav-menu {
     display: flex;
     align-items: center;
+    column-gap: 1.5rem;
 }
 
 .nav_menu_list {
