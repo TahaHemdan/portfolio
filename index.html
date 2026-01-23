@@ -5,9 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- --------- UNICONS ---------- -->
-    <meta property="og:image" content="favicon.jpg">
+    <!-- --------- ICONS ---------- -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+    <!-- --------- OPEN GRAPH ---------- -->
+    <meta property="og:title" content="Taha Hemdan - Full Stack Developer">
+    <meta property="og:description" content="PHP & Laravel Developer Portfolio">
+    <meta property="og:image" content="avatar.jpg">
+    <meta property="og:url" content="#">
 
     <!-- --------- CSS ---------- -->
     <link rel="stylesheet" href="style.css">
@@ -87,31 +93,36 @@
                     </div>
                     <div class="featured-text-info">
                         <p>Hey there. <br>
-                            "I'm Taha Hemdan, 25 years old, studying at Al-Azhar University, Faculty of (Usul al-Din). I
+                            "I'm Taha Hemdan, 23 years old, studying at Al-Azhar University, Faculty of (Usul al-Din). I
                             am a professional Full Stack web developer with experience in developing applications and
                             projects using modern technologies like PHP, MySQL, JavaScript, and other tools that enable
                             me to build integrated solutions for web projects."
                         </p>
                     </div>
                     <div class="featured-text-btn">
-                        <a href="#contact" class="btn blue-btn">Hire Me</a>
-                        <a href="taha.pdf" download class="btn">Download CV <i class="uil uil-file-alt"></i></a>
+                        <a href="#contact" class="btn blue-btn" onclick="window.location.href='#contact'">Hire Me</a>
+                        <a href="taha.pdf" download class="btn" aria-label="Download CV">Download CV <i
+                                class="uil uil-file-alt"></i></a>
                     </div>
                     <div class="social_icons">
-                        <a href="https://www.facebook.com/TahaHemdanFarag" class="social-link" target="_blank">
+                        <a href="https://www.facebook.com/TahaHemdanFarag" class="social-link" target="_blank"
+                            rel="noopener noreferrer" aria-label="Facebook">
                             <div class="icon"><i class="uil uil-facebook-f"></i></div>
                         </a>
-                        <a href="https://www.linkedin.com/in/taha-hemdan-b8886a210/" class="social-link"
-                            target="_blank">
+                        <a href="https://www.linkedin.com/in/taha-hemdan-b8886a210/" class="social-link" target="_blank"
+                            rel="noopener noreferrer" aria-label="LinkedIn">
                             <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
                         </a>
-                        <a href="mailto:mhmtdh362@gmail.com" class="social-link" target="_blank">
+                        <a href="mailto:mhmtdh362@gmail.com" class="social-link" target="_blank"
+                            rel="noopener noreferrer" aria-label="Email">
                             <div class="icon"><i class="uil uil-envelope-alt"></i></div>
                         </a>
-                        <a href="https://github.com/tahahemdan" class="social-link" target="_blank">
+                        <a href="https://github.com/tahahemdan" class="social-link" target="_blank"
+                            rel="noopener noreferrer" aria-label="GitHub">
                             <div class="icon"><i class="uil uil-github-alt"></i></div>
                         </a>
-                        <a href="http://wa.me/201007826619" class="social-link" target="_blank">
+                        <a href="http://wa.me/201007826619" class="social-link" target="_blank"
+                            rel="noopener noreferrer" aria-label="WhatsApp">
                             <div class="icon"><i class="uil uil-whatsapp"></i></div>
                         </a>
                     </div>
@@ -138,11 +149,12 @@
                     <div class="col">
                         <div class="about-info">
                             <h3>My introduction</h3>
-                            <p>"I'm a professional Full Stack web developer with experience in developing applications
-                                and
-                                projects using modern technologies like PHP, MySQL, JavaScript, and other tools that
-                                enable
-                                me to build integrated solutions for web projects."
+                            <p>My journey into web development began with a curiosity for how things work on the web,
+                                which quickly turned into a passion for building robust applications. I specialize in
+                                the LAMP stack (Linux, Apache, MySQL, PHP) and modern frameworks like Laravel. I
+                                prioritize clean, maintainable code and user-centric design to solve real-world
+                                problems. Whether it's a complex e-commerce platform or a custom CMS, I bring a
+                                detail-oriented approach to every project.
                             </p>
                             <div class="about-btn">
                                 <a href="taha.pdf" download class="btn">Download CV <i class="uil uil-import"></i></a>
@@ -155,11 +167,11 @@
                                 <h3>Frontend</h3>
                             </div>
                             <div class="skills-list">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>Bootstrap</span>
-                                <span>JavaScript</span>
-                                <span>jQuery</span>
+                                <span><i class="devicon-html5-plain"></i> HTML</span>
+                                <span><i class="devicon-css3-plain"></i> CSS</span>
+                                <span><i class="devicon-bootstrap-plain"></i> Bootstrap</span>
+                                <span><i class="devicon-javascript-plain"></i> JavaScript</span>
+                                <span><i class="devicon-jquery-plain"></i> jQuery</span>
 
 
                             </div>
@@ -169,9 +181,9 @@
                                 <h3>Backend</h3>
                             </div>
                             <div class="skills-list">
-                                <span>PHP</span>
-                                <span>AJAX</span>
-                                <span>LARAVEL</span>
+                                <span><i class="devicon-php-plain"></i> PHP</span>
+                                <span><i class="devicon-mysql-plain"></i> MySQL</span>
+                                <span><i class="devicon-laravel-plain"></i> Laravel</span>
 
                             </div>
                         </div>
@@ -180,9 +192,39 @@
                                 <h3>Database</h3>
                             </div>
                             <div class="skills-list">
-                                <span>MySQL</span>
+                                <span><i class="devicon-mysql-plain"></i> MySQL</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- -------------- SERVICES BOX ---------------- -->
+            <section class="section" id="services">
+                <div class="top-header">
+                    <h1>Services</h1>
+                    <span>What I Offer</span>
+                </div>
+                <div class="service-container">
+                    <div class="service-box">
+                        <i class="uil uil-brackets-curly"></i>
+                        <h3>API Development</h3>
+                        <p>Robust RESTful APIs built with Laravel for seamless integration.</p>
+                    </div>
+                    <div class="service-box">
+                        <i class="uil uil-database"></i>
+                        <h3>Database Design</h3>
+                        <p>Efficient MySQL schemas optimized for performance and scale.</p>
+                    </div>
+                    <div class="service-box">
+                        <i class="uil uil-monitor"></i>
+                        <h3>Custom CMS</h3>
+                        <p>Tailored content management systems to fit your specific needs.</p>
+                    </div>
+                    <div class="service-box">
+                        <i class="uil uil-bug"></i>
+                        <h3>Bug Fixing</h3>
+                        <p>Troubleshooting and resolving complex issues in existing codebases.</p>
                     </div>
                 </div>
             </section>
@@ -192,22 +234,59 @@
             <section class="section" id="projects">
                 <div class="top-header">
                     <h1>Projects</h1>
+                    <span>Recent Work</span>
                 </div>
                 <div class="project-container">
-                    <div class="project-box">
-                        <i class="uil uil-briefcase-alt"></i>
-                        <h3>Completed</h3>
-                        <label>15+ Finished Projects</label>
+                    <!-- Project 1 -->
+                    <div class="project-box project-card">
+                        <img src="project1.jpg" alt="E-Commerce Store" class="project-img">
+                        <div class="project-info">
+                            <h3>E-Commerce Store</h3>
+                            <p>A full-stack shop built with Laravel and Stripe integration.</p>
+                            <div class="project-tech">
+                                <span>Laravel</span>
+                                <span>MySQL</span>
+                                <span>Bootstrap</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn-small"><i class="uil uil-github"></i> Code</a>
+                                <a href="#" class="btn-small"><i class="uil uil-link"></i> Live</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-box">
-                        <i class="uil uil-users-alt"></i>
-                        <h3>Clients</h3>
-                        <label>25+ Happy Clients</label>
+                    <!-- Project 2 -->
+                    <div class="project-box project-card">
+                        <img src="project2.jpg" alt="Portfolio v1" class="project-img">
+                        <div class="project-info">
+                            <h3>Portfolio Website</h3>
+                            <p>Responsive portfolio with modern glassmorphism design.</p>
+                            <div class="project-tech">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JS</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn-small"><i class="uil uil-github"></i> Code</a>
+                                <a href="#" class="btn-small"><i class="uil uil-link"></i> Live</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-box">
-                        <i class="uil uil-award"></i>
-                        <h3>Experience</h3>
-                        <label>2+ Years in the field</label>
+                    <!-- Project 3 -->
+                    <div class="project-box project-card">
+                        <img src="project3.jpg" alt="CMS System" class="project-img">
+                        <div class="project-info">
+                            <h3>Management System</h3>
+                            <p>Internal tool for managing detailed user records and roles.</p>
+                            <div class="project-tech">
+                                <span>PHP</span>
+                                <span>MySQL</span>
+                                <span>AJAX</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="btn-small"><i class="uil uil-github"></i> Code</a>
+                                <a href="#" class="btn-small"><i class="uil uil-link"></i> Live</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -274,19 +353,24 @@
                 </ul>
             </div>
             <div class="footer-social-icons">
-                <a href="https://www.facebook.com/TahaHemdanFarag" class="social-link" target="_blank">
+                <a href="https://www.facebook.com/TahaHemdanFarag" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="Facebook">
                     <div class="icon"><i class="uil uil-facebook-f"></i></div>
                 </a>
-                <a href="https://www.linkedin.com/in/taha-hemdan-b8886a210/" class="social-link" target="_blank">
+                <a href="https://www.linkedin.com/in/taha-hemdan-b8886a210/" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
                     <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
                 </a>
-                <a href="mailto:mhmtdh362@gmail.com" class="social-link" target="_blank">
+                <a href="mailto:mhmtdh362@gmail.com" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="Email">
                     <div class="icon"><i class="uil uil-envelope-alt"></i></div>
                 </a>
-                <a href="https://github.com/tahahemdan" class="social-link" target="_blank">
+                <a href="https://github.com/tahahemdan" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
                     <div class="icon"><i class="uil uil-github-alt"></i></div>
                 </a>
-                <a href="http://wa.me/201007826619" class="social-link" target="_blank">
+                <a href="http://wa.me/201007826619" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="WhatsApp">
                     <div class="icon"><i class="uil uil-whatsapp"></i></div>
                 </a>
             </div>
@@ -312,4 +396,3 @@
 </body>
 
 </html>
-
