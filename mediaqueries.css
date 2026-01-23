@@ -105,7 +105,8 @@
         width: 100%;
     }
 
-    .project-container {
+    .project-container,
+    .service-container {
         grid-template-columns: 1fr;
         /* 1 column on mobile */
     }
