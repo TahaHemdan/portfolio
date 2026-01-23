@@ -58,7 +58,7 @@ function headerShadow() {
 
 /* ----- TYPING EFFECT ----- */
 var typingEffect = new Typed(".typedText", {
-    strings: ["Frontend ", "Backend ", "UI/UX "],
+    strings: ["Frontend Developer", "Backend Developer", "UI/UX Designer"],
     loop: true,
     typeSpeed: 100,
     backSpeed: 80,
@@ -162,4 +162,3 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
-
