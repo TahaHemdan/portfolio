@@ -709,3 +709,84 @@ footer {
 .change-theme:hover {
     color: var(--first-color);
 }
+
+/* ----- RTL SUPPORT (ARABIC) ----- */
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Flip text alignment for things that should follow direction */
+.rtl .project-card,
+.rtl .service-box,
+.rtl .contact-info,
+.rtl .about-info {
+    text-align: right;
+}
+
+/* Navbar */
+.rtl .nav-logo span {
+    margin-left: 0;
+    margin-right: 2px;
+}
+
+/* Flip button hover animation */
+.rtl .btn:hover>i {
+    transform: translateX(-5px);
+}
+
+/* Flip specific icons if needed (e.g., arrows) */
+.rtl .uil-corner-right-down {
+    transform: scaleX(-1);
+    display: inline-block;
+}
+
+/* Form Inputs */
+.rtl .input-field,
+.rtl textarea {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Background Blobs (First 2 divs in body) */
+.rtl>div:nth-child(1) {
+    left: auto !important;
+    right: -100px !important;
+}
+
+.rtl>div:nth-child(2) {
+    right: auto !important;
+    left: -100px !important;
+}
+
+/* Fix Social Icons alignment in footer if needed (usually center is fine) */
+
+/* Specific Adjustments for Contact Info Icons in RTL */
+/* In LTR: <p><i class="icon"></i> Text...</p> (flex row, gap) -> Icon Left, Text Right.
+   In RTL: Flex starts from right -> Icon Right, Text Left. This is correct for RTL. 
+   So no change needed for .contact-info p flex order. 
+*/
+
+/* Language Toggle Button Style */
+.language-toggle {
+    margin-left: 20px;
+    border: 1px solid var(--title-color);
+    border-radius: 5px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 30px;
+}
+
+.language-toggle:hover {
+    background: var(--first-color);
+    color: #fff;
+    border-color: var(--first-color);
+}
+
+.rtl .language-toggle {
+    margin-left: 0;
+    margin-right: 20px;
+}
