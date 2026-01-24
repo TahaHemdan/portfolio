@@ -52,26 +52,30 @@
             <div class="nav-menu" id="myNavMenu">
                 <ul class="nav_menu_list">
                     <li class="nav_list">
-                        <a href="#home" class="nav-link active-link">Home</a>
+                        <a href="#home" class="nav-link active-link" data-i18n="nav_home">Home</a>
                         <div class="circle"></div>
                     </li>
                     <li class="nav_list">
-                        <a href="#about" class="nav-link">About</a>
+                        <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
                         <div class="circle"></div>
                     </li>
                     <li class="nav_list">
-                        <a href="#projects" class="nav-link">Projects</a>
+                        <a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a>
                         <div class="circle"></div>
                     </li>
                     <li class="nav_list">
-                        <a href="#contact" class="nav-link">Contact</a>
+                        <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
                         <div class="circle"></div>
                     </li>
                 </ul>
                 <i class="uil uil-moon change-theme" id="theme-button"></i>
+                <div class="language-toggle" id="language-toggle" onclick="toggleLanguage()"
+                    style="cursor: pointer; padding: 0 10px; font-weight: 500; font-family: 'Poppins', sans-serif;">AR
+                </div>
             </div>
             <div class="nav-button">
-                <a href="taha.pdf" download class="btn">Download CV <i class="uil uil-file-alt"></i></a>
+                <a href="taha.pdf" download class="btn"><span data-i18n="download_cv">Download CV</span> <i
+                        class="uil uil-file-alt"></i></a>
             </div>
             <div class="nav-menu-btn">
                 <i class="uil uil-bars" onclick="myMenuFunction()"></i>
@@ -89,10 +93,10 @@
                         <span>Taha Hemdan</span>
                     </div>
                     <div class="featured-name">
-                        <p>I'm <span class="typedText"></span></p>
+                        <p><span data-i18n="im">I'm</span> <span class="typedText"></span></p>
                     </div>
                     <div class="featured-text-info">
-                        <p>Hey there. <br>
+                        <p data-i18n="hero_desc">Hey there. <br>
                             "I'm Taha Hemdan, 23 years old, studying at Al-Azhar University, Faculty of (Usul al-Din). I
                             am a professional Full Stack web developer with experience in developing applications and
                             projects using modern technologies like PHP, MySQL, JavaScript, and other tools that enable
@@ -100,9 +104,10 @@
                         </p>
                     </div>
                     <div class="featured-text-btn">
-                        <a href="#contact" class="btn blue-btn" onclick="window.location.href='#contact'">Hire Me</a>
-                        <a href="taha.pdf" download class="btn" aria-label="Download CV">Download CV <i
-                                class="uil uil-file-alt"></i></a>
+                        <a href="#contact" class="btn blue-btn" onclick="window.location.href='#contact'"
+                            data-i18n="hire_me">Hire Me</a>
+                        <a href="taha.pdf" download class="btn" aria-label="Download CV"><span
+                                data-i18n="download_cv">Download CV</span> <i class="uil uil-file-alt"></i></a>
                     </div>
                     <div class="social_icons">
                         <a href="https://www.facebook.com/TahaHemdanFarag" class="social-link" target="_blank"
@@ -143,13 +148,14 @@
             <!-- -------------- ABOUT BOX ---------------- -->
             <section class="section" id="about">
                 <div class="top-header">
-                    <h1>About Me</h1>
+                    <h1 data-i18n="about_title">About Me</h1>
                 </div>
                 <div class="row">
                     <div class="col">
                         <div class="about-info">
-                            <h3>My introduction</h3>
-                            <p>My journey into web development began with a curiosity for how things work on the web,
+                            <h3 data-i18n="about_intro">My introduction</h3>
+                            <p data-i18n="about_text">My journey into web development began with a curiosity for how
+                                things work on the web,
                                 which quickly turned into a passion for building robust applications. I specialize in
                                 the LAMP stack (Linux, Apache, MySQL, PHP) and modern frameworks like Laravel. I
                                 prioritize clean, maintainable code and user-centric design to solve real-world
@@ -157,14 +163,15 @@
                                 detail-oriented approach to every project.
                             </p>
                             <div class="about-btn">
-                                <a href="taha.pdf" download class="btn">Download CV <i class="uil uil-import"></i></a>
+                                <a href="taha.pdf" download class="btn"><span data-i18n="download_cv">Download CV</span>
+                                    <i class="uil uil-import"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="skills-box">
                             <div class="skills-header">
-                                <h3>Frontend</h3>
+                                <h3 data-i18n="frontend_title">Frontend</h3>
                             </div>
                             <div class="skills-list">
                                 <span><i class="devicon-html5-plain"></i> HTML</span>
@@ -178,7 +185,7 @@
                         </div>
                         <div class="skills-box">
                             <div class="skills-header">
-                                <h3>Backend</h3>
+                                <h3 data-i18n="backend_title">Backend</h3>
                             </div>
                             <div class="skills-list">
                                 <span><i class="devicon-php-plain"></i> PHP</span>
@@ -189,7 +196,7 @@
                         </div>
                         <div class="skills-box">
                             <div class="skills-header">
-                                <h3>Database</h3>
+                                <h3 data-i18n="db_title">Database</h3>
                             </div>
                             <div class="skills-list">
                                 <span><i class="devicon-mysql-plain"></i> MySQL</span>
@@ -202,29 +209,30 @@
             <!-- -------------- SERVICES BOX ---------------- -->
             <section class="section" id="services">
                 <div class="top-header">
-                    <h1>Services</h1>
-                    <span>What I Offer</span>
+                    <h1 data-i18n="services_title">Services</h1>
+                    <span data-i18n="services_subtitle">What I Offer</span>
                 </div>
                 <div class="service-container">
                     <div class="service-box">
                         <i class="uil uil-brackets-curly"></i>
-                        <h3>API Development</h3>
-                        <p>Robust RESTful APIs built with Laravel for seamless integration.</p>
+                        <h3 data-i18n="api_dev">API Development</h3>
+                        <p data-i18n="api_dev_desc">Robust RESTful APIs built with Laravel for seamless integration.</p>
                     </div>
                     <div class="service-box">
                         <i class="uil uil-database"></i>
-                        <h3>Database Design</h3>
-                        <p>Efficient MySQL schemas optimized for performance and scale.</p>
+                        <h3 data-i18n="db_design">Database Design</h3>
+                        <p data-i18n="db_design_desc">Efficient MySQL schemas optimized for performance and scale.</p>
                     </div>
                     <div class="service-box">
                         <i class="uil uil-monitor"></i>
-                        <h3>Custom CMS</h3>
-                        <p>Tailored content management systems to fit your specific needs.</p>
+                        <h3 data-i18n="cms">Custom CMS</h3>
+                        <p data-i18n="cms_desc">Tailored content management systems to fit your specific needs.</p>
                     </div>
                     <div class="service-box">
                         <i class="uil uil-bug"></i>
-                        <h3>Bug Fixing</h3>
-                        <p>Troubleshooting and resolving complex issues in existing codebases.</p>
+                        <h3 data-i18n="bug_fix">Bug Fixing</h3>
+                        <p data-i18n="bug_fix_desc">Troubleshooting and resolving complex issues in existing codebases.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -233,8 +241,8 @@
 
             <section class="section" id="projects">
                 <div class="top-header">
-                    <h1>Projects</h1>
-                    <span>Recent Work</span>
+                    <h1 data-i18n="projects_title">Projects</h1>
+                    <span data-i18n="projects_subtitle">Recent Work</span>
                 </div>
                 <div class="project-container">
                     <!-- Project 1 -->
@@ -295,13 +303,13 @@
 
             <section class="section" id="contact">
                 <div class="top-header">
-                    <h1>Get in touch</h1>
-                    <span>Do you have a project in your mind, contact me here</span>
+                    <h1 data-i18n="contact_title">Get in touch</h1>
+                    <span data-i18n="contact_subtitle">Do you have a project in your mind, contact me here</span>
                 </div>
                 <div class="row">
                     <div class="col">
                         <div class="contact-info">
-                            <h2>Find Me <i class="uil uil-corner-right-down"></i></h2>
+                            <h2 data-i18n="find_me">Find Me <i class="uil uil-corner-right-down"></i></h2>
                             <p><a href="mailto:mhmtdh362@gmail.com" class="social-link"><i class="uil uil-envelope">
                                         Email: mhmtdh362@gmail.com</i></a></p>
                             <p><a href="tel:+20 0100 782 6619" class="social-link"><i class="uil uil-phone"> Tel: +20
@@ -313,14 +321,18 @@
                     <div class="col">
                         <form action="https://formspree.io/f/mjkvoboj" method="POST">
                             <div class="form-input-group">
-                                <input type="text" name="name" class="input-field" placeholder="Name">
-                                <input type="text" name="email" class="input-field" placeholder="Email">
+                                <input type="text" name="name" class="input-field" placeholder="Name"
+                                    data-i18n-placeholder="name_placeholder">
+                                <input type="text" name="email" class="input-field" placeholder="Email"
+                                    data-i18n-placeholder="email_placeholder">
                             </div>
                             <div class="text-area">
-                                <textarea name="message" placeholder="Message"></textarea>
+                                <textarea name="message" placeholder="Message"
+                                    data-i18n-placeholder="message_placeholder"></textarea>
                             </div>
                             <div class="form-button">
-                                <button type="submit" class="btn">Send <i class="uil uil-message"></i></button>
+                                <button type="submit" class="btn"><span data-i18n="send_btn">Send</span> <i
+                                        class="uil uil-message"></i></button>
                             </div>
                         </form>
 
@@ -339,16 +351,16 @@
             <div class="middle-footer">
                 <ul class="footer-menu">
                     <li class="footer_menu_list">
-                        <a href="#home">Home</a>
+                        <a href="#home" data-i18n="nav_home">Home</a>
                     </li>
                     <li class="footer_menu_list">
-                        <a href="#about">About</a>
+                        <a href="#about" data-i18n="nav_about">About</a>
                     </li>
                     <li class="footer_menu_list">
-                        <a href="#projects">Projects</a>
+                        <a href="#projects" data-i18n="nav_projects">Projects</a>
                     </li>
                     <li class="footer_menu_list">
-                        <a href="#contact">Contact</a>
+                        <a href="#contact" data-i18n="nav_contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -375,7 +387,9 @@
                 </a>
             </div>
             <div class="bottom-footer">
-                <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Taha.</a> - All rights reserved
+                <p><span data-i18n="footer_copy">Copyright &copy;</span> <a href="#home"
+                        style="text-decoration: none;">Taha.</a> <span data-i18n="footer_rights">- All rights
+                        reserved</span>
                 </p>
             </div>
         </footer>
