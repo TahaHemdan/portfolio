@@ -153,6 +153,32 @@ nav {
     column-gap: 1.5rem;
 }
 
+.language-toggle {
+    cursor: pointer;
+    padding: 0.35rem 0.75rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    background: transparent;
+    color: var(--title-color);
+    transition: 0.3s;
+}
+
+.language-toggle:hover {
+    border-color: var(--first-color);
+    color: var(--first-color);
+    box-shadow: 0 0 12px rgba(110, 87, 224, 0.4);
+}
+
+.featured-tagline {
+    margin-top: 0.75rem;
+    font-size: 1.05rem;
+    color: var(--text-color-light);
+    max-width: 520px;
+    line-height: 1.6;
+}
+
 .nav_menu_list {
     display: flex;
     column-gap: 3rem;
