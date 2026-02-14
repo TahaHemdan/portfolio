@@ -35,10 +35,19 @@ document.addEventListener("click", (event) => {
 });
 
 /* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
-window.onscroll = function () {
-    headerShadow();
-    scrollActive(); // Combine scroll events
-};
+let isScrolling = false;
+
+window.addEventListener("scroll", () => {
+    if (isScrolling) {
+        return;
+    }
+
+    isScrolling = true;
+    window.requestAnimationFrame(() => {
+        headerShadow();
+        isScrolling = false;
+    });
+});
 
 function headerShadow() {
     const navHeader = document.getElementById("header");
@@ -126,25 +135,39 @@ srRight.reveal(".form-control", { delay: 100 });
 
 /* ----- CHANGE ACTIVE LINK ----- */
 const sections = document.querySelectorAll("section[id]");
+const navLinksBySection = new Map();
 
-function scrollActive() {
-    const scrollY = window.scrollY;
+sections.forEach((section) => {
+    const sectionId = section.getAttribute("id");
+    const navLink = document.querySelector(`.nav-menu a[href*="${sectionId}"]`);
+    if (navLink) {
+        navLinksBySection.set(sectionId, navLink);
+    }
+});
 
-    sections.forEach((current) => {
-        const sectionHeight = current.offsetHeight,
-            sectionTop = current.offsetTop - 50,
-            sectionId = current.getAttribute("id");
+const sectionObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            const navLink = navLinksBySection.get(entry.target.id);
+            if (!navLink) {
+                return;
+            }
 
-        const navLink = document.querySelector(".nav-menu a[href*=" + sectionId + "]");
-        if (navLink) {
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            if (entry.isIntersecting) {
                 navLink.classList.add("active-link");
             } else {
                 navLink.classList.remove("active-link");
             }
-        }
-    });
-}
+        });
+    },
+    {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5,
+    }
+);
+
+sections.forEach((section) => sectionObserver.observe(section));
 
 /* ----- DARK / LIGHT THEME ----- */
 const themeButton = document.getElementById('theme-button')
@@ -185,6 +208,7 @@ const translations = {
         nav_contact: "Contact",
         download_cv: "Download CV",
         im: "I'm",
+        hero_tagline: "Full Stack Developer specializing in Laravel.",
         hero_desc: `Hey there. <br>
             "I'm Taha Hemdan, 23 years old, studying at Al-Azhar University, Faculty of (Usul al-Din). I
             am a professional Full Stack web developer with experience in developing applications and
@@ -231,6 +255,7 @@ const translations = {
         nav_contact: "تواصل معي",
         download_cv: "تحميل السيرة الذاتية",
         im: "أنا",
+        hero_tagline: "مطور ويب متكامل متخصص في لارافيل.",
         hero_desc: `مرحباً. <br>
             "أنا طه حمدان، عمري 23 عاماً، أدرس في جامعة الأزهر، كلية أصول الدين. أنا مطور ويب Full Stack محترف ذو خبرة في تطوير التطبيقات والمشاريع باستخدام التقنيات الحديثة مثل PHP، MySQL، JavaScript وأدوات أخرى تمكنني من بناء حلول متكاملة لمشاريع الويب."`,
         hire_me: "وظفني",
@@ -275,10 +300,12 @@ function setLanguage(lang) {
         document.body.classList.add('rtl');
         document.documentElement.setAttribute('lang', 'ar');
         languageToggleBtn.textContent = 'EN';
+        languageToggleBtn.setAttribute('aria-pressed', 'true');
     } else {
         document.body.classList.remove('rtl');
         document.documentElement.setAttribute('lang', 'en');
         languageToggleBtn.textContent = 'AR';
+        languageToggleBtn.setAttribute('aria-pressed', 'false');
     }
 
     // Update Text Content
@@ -309,6 +336,8 @@ function toggleLanguage() {
     const newLang = document.documentElement.getAttribute('lang') === 'en' ? 'ar' : 'en';
     setLanguage(newLang);
 }
+
+languageToggleBtn.addEventListener('click', toggleLanguage);
 
 // Initialize on load
 setLanguage(currentLang);

@@ -72,6 +72,12 @@
         align-items: center;
     }
 
+    .featured-tagline {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
     .featured-text-btn {
         justify-content: center;
     }

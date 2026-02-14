@@ -17,8 +17,6 @@
 
     <!-- --------- CSS ---------- -->
     <link rel="stylesheet" href="style.css">
-    <!-- --------- CSS ---------- -->
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaqueries.css">
 
     <!-- --------- META TAGS ---------- -->
@@ -69,9 +67,8 @@
                     </li>
                 </ul>
                 <i class="uil uil-moon change-theme" id="theme-button"></i>
-                <div class="language-toggle" id="language-toggle" onclick="toggleLanguage()"
-                    style="cursor: pointer; padding: 0 10px; font-weight: 500; font-family: 'Poppins', sans-serif;">AR
-                </div>
+                <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch language"
+                    aria-pressed="false">AR</button>
             </div>
             <div class="nav-button">
                 <a href="taha.pdf" download class="btn"><span data-i18n="download_cv">Download CV</span> <i
@@ -93,8 +90,10 @@
                         <span>Taha Hemdan</span>
                     </div>
                     <div class="featured-name">
-                        <p><span data-i18n="im">I'm</span> <span class="typedText"></span></p>
+                        <p><span data-i18n="im">I'm</span> <span class="typedText" aria-live="polite"></span></p>
                     </div>
+                    <p class="featured-tagline" data-i18n="hero_tagline">Full Stack Developer specializing in Laravel.
+                    </p>
                     <div class="featured-text-info">
                         <p data-i18n="hero_desc">Hey there. <br>
                             "I'm Taha Hemdan, 23 years old, studying at Al-Azhar University, Faculty of (Usul al-Din). I
