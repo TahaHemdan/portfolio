@@ -1,343 +1,336 @@
-/* ----- NAVIGATION BAR FUNCTION ----- */
-function myMenuFunction() {
-    const menuBtn = document.getElementById("myNavMenu");
+/* ----- VARIABLES ----- */
+:root {
+    --hue: 223;
+    --first-color: hsl(var(--hue), 90%, 61%);
+    --first-color-alt: hsl(var(--hue), 85%, 55%);
+    --first-glow: hsla(var(--hue), 90%, 61%, 0.4);
+    --second-color: hsl(190, 80%, 60%);
 
-    if (menuBtn.className === "nav-menu") {
-        menuBtn.className += " responsive";
-    } else {
-        menuBtn.className = "nav-menu";
-    }
+    --body-color: hsl(var(--hue), 28%, 12%);
+    --container-color: hsl(var(--hue), 20%, 15%);
+    --header-bg: hsla(var(--hue), 28%, 12%, 0.85);
+
+    --title-color: hsl(var(--hue), 8%, 95%);
+    --text-color: hsl(var(--hue), 8%, 75%);
+    --text-color-light: hsl(var(--hue), 8%, 68%);
+
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+
+    --shadow-1: 0 4px 16px rgba(0, 0, 0, 0.3);
+    --shadow-2: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+    --header-h: 80px;
+    --z-fixed: 100;
 }
 
-// Close menu after clicking on a link
-const navLinks = document.querySelectorAll(".nav-menu a");
-
-navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-        const menuBtn = document.getElementById("myNavMenu");
-        menuBtn.className = "nav-menu";
-    });
-});
-
-// Close menu when clicking outside
-document.addEventListener("click", (event) => {
-    const menu = document.getElementById("myNavMenu");
-    const menuToggle = document.querySelector(".nav-menu-btn i");
-    const themeBtn = document.getElementById("theme-button");
-
-    if (
-        !menu.contains(event.target) &&
-        !menuToggle.contains(event.target) &&
-        !themeBtn.contains(event.target)
-    ) {
-        menu.className = "nav-menu";
-    }
-});
-
-/* ----- ADD SHADOW ON NAVIGATION BAR WHILE SCROLLING ----- */
-let isScrolling = false;
-
-window.addEventListener("scroll", () => {
-    if (isScrolling) {
-        return;
-    }
-
-    isScrolling = true;
-    window.requestAnimationFrame(() => {
-        headerShadow();
-        isScrolling = false;
-    });
-});
-
-function headerShadow() {
-    const navHeader = document.getElementById("header");
-
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        navHeader.classList.add("nav-header-scrolled");
-        navHeader.style.boxShadow = "var(--shadow-1)";
-        navHeader.style.height = "70px";
-        navHeader.style.lineHeight = "70px";
-    } else {
-        navHeader.classList.remove("nav-header-scrolled");
-        navHeader.style.boxShadow = "none";
-        navHeader.style.height = "90px";
-        navHeader.style.lineHeight = "90px";
-    }
+.light-theme {
+    --body-color: hsl(var(--hue), 28%, 96%);
+    --container-color: #fff;
+    --header-bg: hsla(var(--hue), 28%, 96%, 0.88);
+    --title-color: hsl(var(--hue), 20%, 14%);
+    --text-color: hsl(var(--hue), 10%, 33%);
+    --text-color-light: hsl(var(--hue), 10%, 38%);
+    --glass-bg: rgba(0, 0, 0, 0.04);
+    --glass-border: rgba(0, 0, 0, 0.12);
+    --shadow-1: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --shadow-2: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
-/* ----- TYPING EFFECT ----- */
-/* ----- TYPING EFFECT ----- */
-var typingEffect;
+/* ----- BASE ----- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-function initTyped(lang) {
-    if (typingEffect) {
-        typingEffect.destroy();
-    }
-
-    var strings = lang === 'ar'
-        ? ["مطور واجهات أمامية", "مطور خلفيات / سيرفر", "مصمم تجربة مستخدم"]
-        : ["Frontend Developer", "Backend Developer", "UI/UX Designer"];
-
-    typingEffect = new Typed(".typedText", {
-        strings: strings,
-        loop: true,
-        typeSpeed: 100,
-        backSpeed: 80,
-        backDelay: 2000,
-    });
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 10px);
 }
 
-/* ----- SCROLL REVEAL ANIMATION ----- */
-const sr = ScrollReveal({
-    origin: "top",
-    distance: "80px",
-    duration: 2000,
-    reset: true,
-});
-
-/* -- HOME -- */
-sr.reveal(".featured-text-card", {});
-sr.reveal(".featured-name", { delay: 100 });
-sr.reveal(".featured-text-info", { delay: 200 });
-sr.reveal(".featured-text-btn", { delay: 200 });
-sr.reveal(".social_icons", { delay: 200 });
-sr.reveal(".featured-image", { delay: 300 });
-
-/* -- PROJECT BOX -- */
-sr.reveal(".project-box", { interval: 200 });
-
-/* -- HEADINGS -- */
-sr.reveal(".top-header", {});
-
-/* ----- SCROLL REVEAL LEFT_RIGHT ANIMATION ----- */
-
-/* -- ABOUT INFO & CONTACT INFO -- */
-const srLeft = ScrollReveal({
-    origin: "left",
-    distance: "80px",
-    duration: 2000,
-    reset: true,
-});
-
-srLeft.reveal(".about-info", { delay: 100 });
-srLeft.reveal(".contact-info", { delay: 100 });
-
-/* -- ABOUT SKILLS & FORM BOX -- */
-const srRight = ScrollReveal({
-    origin: "right",
-    distance: "80px",
-    duration: 2000,
-    reset: true,
-});
-
-srRight.reveal(".skills-box", { delay: 100 });
-srRight.reveal(".form-control", { delay: 100 });
-
-/* ----- CHANGE ACTIVE LINK ----- */
-const sections = document.querySelectorAll("section[id]");
-const navLinksBySection = new Map();
-
-sections.forEach((section) => {
-    const sectionId = section.getAttribute("id");
-    const navLink = document.querySelector(`.nav-menu a[href*="${sectionId}"]`);
-    if (navLink) {
-        navLinksBySection.set(sectionId, navLink);
-    }
-});
-
-const sectionObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            const navLink = navLinksBySection.get(entry.target.id);
-            if (!navLink) {
-                return;
-            }
-
-            if (entry.isIntersecting) {
-                navLink.classList.add("active-link");
-            } else {
-                navLink.classList.remove("active-link");
-            }
-        });
-    },
-    {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.5,
-    }
-);
-
-sections.forEach((section) => sectionObserver.observe(section));
-
-/* ----- DARK / LIGHT THEME ----- */
-const themeButton = document.getElementById('theme-button')
-const lightTheme = 'light-theme'
-const iconTheme = 'uil-sun'
-
-// Previously selected topic (if user selected)
-const selectedTheme = localStorage.getItem('selected-theme')
-const selectedIcon = localStorage.getItem('selected-icon')
-
-// We obtain the current theme that the interface has by validating the dark-theme class
-const getCurrentTheme = () => document.body.classList.contains(lightTheme) ? 'light' : 'dark'
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-sun' : 'uil-moon'
-
-// We validate if the user previously chose a topic
-if (selectedTheme) {
-    // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-    document.body.classList[selectedTheme === 'light' ? 'add' : 'remove'](lightTheme)
-    themeButton.classList[selectedIcon === 'uil-sun' ? 'add' : 'remove'](iconTheme)
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--body-color);
+    background-image:
+        radial-gradient(circle at 20% 20%, hsla(var(--hue), 80%, 60%, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, hsla(190, 100%, 50%, 0.12) 0%, transparent 40%);
+    color: var(--text-color);
+    overflow-x: clip;
+    transition: background-color 0.4s, color 0.4s;
 }
 
-// Activate / deactivate the theme manually with the button
-themeButton.addEventListener('click', () => {
-    // Add or remove the light / icon theme
-    document.body.classList.toggle(lightTheme)
-    themeButton.classList.toggle(iconTheme)
-    // We save the theme and the current icon that the user chose
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
-})
+[dir="rtl"] body { font-family: 'Cairo', 'Poppins', sans-serif; }
 
-/* ----- LANGUAGE TRANSLATION ----- */
-const translations = {
-    en: {
-        nav_home: "Home",
-        nav_about: "About",
-        nav_projects: "Projects",
-        nav_contact: "Contact",
-        download_cv: "Download CV",
-        im: "I'm",
-        hero_tagline: "Full Stack Developer specializing in Laravel.",
-        hero_desc: `Hey there. <br>
-            "I'm Taha Hemdan, 23 years old, studying at Al-Azhar University, Faculty of (Usul al-Din). I
-            am a professional Full Stack web developer with experience in developing applications and
-            projects using modern technologies like PHP, MySQL, JavaScript, and other tools that enable
-            me to build integrated solutions for web projects."`,
-        hire_me: "Hire Me",
-        about_title: "About Me",
-        about_intro: "My introduction",
-        about_text: `My journey into web development began with a curiosity for how things work on the web,
-            which quickly turned into a passion for building robust applications. I specialize in
-            the LAMP stack (Linux, Apache, MySQL, PHP) and modern frameworks like Laravel. I
-            prioritize clean, maintainable code and user-centric design to solve real-world
-            problems. Whether it's a complex e-commerce platform or a custom CMS, I bring a
-            detail-oriented approach to every project.`,
-        frontend_title: "Frontend",
-        backend_title: "Backend",
-        db_title: "Database",
-        services_title: "Services",
-        services_subtitle: "What I Offer",
-        api_dev: "API Development",
-        api_dev_desc: "Robust RESTful APIs built with Laravel for seamless integration.",
-        db_design: "Database Design",
-        db_design_desc: "Efficient MySQL schemas optimized for performance and scale.",
-        cms: "Custom CMS",
-        cms_desc: "Tailored content management systems to fit your specific needs.",
-        bug_fix: "Bug Fixing",
-        bug_fix_desc: "Troubleshooting and resolving complex issues in existing codebases.",
-        projects_title: "Projects",
-        projects_subtitle: "Recent Work",
-        contact_title: "Get in touch",
-        contact_subtitle: "Do you have a project in your mind, contact me here",
-        find_me: "Find Me",
-        send_btn: "Send",
-        footer_copy: "Copyright &copy;",
-        footer_rights: "- All rights reserved",
-        name_placeholder: "Name",
-        email_placeholder: "Email",
-        message_placeholder: "Message"
-    },
-    ar: {
-        nav_home: "الرئيسية",
-        nav_about: "عني",
-        nav_projects: "المشاريع",
-        nav_contact: "تواصل معي",
-        download_cv: "تحميل السيرة الذاتية",
-        im: "أنا",
-        hero_tagline: "مطور ويب متكامل متخصص في لارافيل.",
-        hero_desc: `مرحباً. <br>
-            "أنا طه حمدان، عمري 23 عاماً، أدرس في جامعة الأزهر، كلية أصول الدين. أنا مطور ويب Full Stack محترف ذو خبرة في تطوير التطبيقات والمشاريع باستخدام التقنيات الحديثة مثل PHP، MySQL، JavaScript وأدوات أخرى تمكنني من بناء حلول متكاملة لمشاريع الويب."`,
-        hire_me: "وظفني",
-        about_title: "عني",
-        about_intro: "مقدمتي",
-        about_text: `بدأت رحلتي في تطوير الويب بفضول لمعرفة كيفية عمل الأشياء على الويب، وسرعان ما تحول ذلك إلى شغف ببناء تطبيقات قوية. أتخصص في حزمة LAMP وأطر العمل الحديثة مثل Laravel. أعطي الأولوية للكود النظيف القابل للصيانة والتصميم المتمحور حول المستخدم لحل مشاكل العالم الحقيقي. سواء كان منصة تجارة إلكترونية معقدة أو نظام إدارة محتوى مخصص، فإنني أقدم نهجاً يهتم بالتفاصيل لكل مشروع.`,
-        frontend_title: "الواجهة الأمامية",
-        backend_title: "الخلفية / السيرفر",
-        db_title: "قواعد البيانات",
-        services_title: "خدماتي",
-        services_subtitle: "ماذا أقدم",
-        api_dev: "تطوير واجهات برمجة التطبيقات (API)",
-        api_dev_desc: "واجهات برمجية RESTful قوية مبنية بـ Laravel لتكامل سلس.",
-        db_design: "تصميم قواعد البيانات",
-        db_design_desc: "مخططات MySQL فعالة ومحسنة للأداء والتوسع.",
-        cms: "لوحات تحكم خاصة (CMS)",
-        cms_desc: "أنظمة إدارة محتوى مخصصة لتلائم احتياجاتك الخاصة.",
-        bug_fix: "إصلاح الأخطاء",
-        bug_fix_desc: "استكشاف وحل المشكلات المعقدة في الأكواد البرمجية الحالية.",
-        projects_title: "المشاريع",
-        projects_subtitle: "أعمال حديثة",
-        contact_title: "تواصل معي",
-        contact_subtitle: "هل لديك مشروع في ذهنك؟ تواصل معي هنا",
-        find_me: "تجدني هنا",
-        send_btn: "إرسال",
-        footer_copy: "حقوق النشر &copy;",
-        footer_rights: "- جميع الحقوق محفوظة",
-        name_placeholder: "الاسم",
-        email_placeholder: "البريد الإلكتروني",
-        message_placeholder: "الرسالة"
-    }
-};
+button, input, textarea { font-family: inherit; }
+button { background: none; border: 0; color: inherit; cursor: pointer; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
 
-const languageToggleBtn = document.getElementById('language-toggle');
-const currentLang = localStorage.getItem('language') || 'en';
+:focus-visible { outline: 2px solid var(--first-color); outline-offset: 3px; }
 
-function setLanguage(lang) {
-    localStorage.setItem('language', lang);
+.skip-link {
+    position: fixed; top: -100px; inset-inline-start: 1rem; z-index: 200;
+    background: var(--first-color); color: #fff; padding: 0.6rem 1rem; border-radius: 0.5rem;
+    text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
 
-    // Update HTML classes
-    if (lang === 'ar') {
-        document.body.classList.add('rtl');
-        document.documentElement.setAttribute('lang', 'ar');
-        languageToggleBtn.textContent = 'EN';
-        languageToggleBtn.setAttribute('aria-pressed', 'true');
-    } else {
-        document.body.classList.remove('rtl');
-        document.documentElement.setAttribute('lang', 'en');
-        languageToggleBtn.textContent = 'AR';
-        languageToggleBtn.setAttribute('aria-pressed', 'false');
-    }
+.honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
-    // Update Text Content
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang][key]) {
-            // Check if element has children that we shouldn't overwrite (like iconic buttons), 
-            // but we wrapped text in spans, so we can safely update innerHTML or textContent.
-            // However, for elements like 'hire_me' which is <a>Hire Me</a>, we can just replace innerHTML.
-            // Using innerHTML allows <br> tags in hero_desc.
-            element.innerHTML = translations[lang][key];
-        }
-    });
+/* Decorative background blobs */
+.bg-blob {
+    position: fixed; width: 300px; height: 300px; border-radius: 50%;
+    filter: blur(100px); opacity: 0.2; z-index: -1; pointer-events: none;
+}
+.bg-blob--one { background: var(--first-color); top: 10%; inset-inline-start: -100px; }
+.bg-blob--two { background: var(--second-color); bottom: 10%; inset-inline-end: -100px; }
 
-    // Update Placeholders
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-        const key = element.getAttribute('data-i18n-placeholder');
-        if (translations[lang][key]) {
-            element.placeholder = translations[lang][key];
-        }
-    });
+/* ----- SCROLLBAR ----- */
+::-webkit-scrollbar { width: 10px; background: var(--body-color); }
+::-webkit-scrollbar-thumb { background: var(--container-color); border-radius: 5px; border: 1px solid var(--glass-border); }
+::-webkit-scrollbar-thumb:hover { background: var(--first-color); }
 
-    // Update Typed.js
-    initTyped(lang);
+/* ----- BUTTONS ----- */
+.btn {
+    display: inline-flex; align-items: center; column-gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--first-color); color: #fff; font-weight: 500; text-decoration: none;
+    border: 1px solid transparent; border-radius: 1rem; cursor: pointer;
+    transition: 0.4s; box-shadow: 0 4px 12px var(--first-glow);
+}
+.btn:hover { background: var(--first-color-alt); transform: translateY(-2px); box-shadow: 0 8px 24px var(--first-glow); }
+.btn > i { font-size: 1.25rem; transition: 0.3s; }
+.btn:hover > i { transform: translateX(5px); }
+[dir="rtl"] .btn:hover > i { transform: translateX(-5px); }
+.btn-outline { background: transparent; color: var(--title-color); border-color: var(--first-color); box-shadow: none; }
+.btn-outline:hover { color: #fff; }
+
+/* ----- HEADER & NAV ----- */
+nav {
+    position: fixed; top: 0; width: 100%; height: var(--header-h);
+    display: flex; justify-content: space-between; align-items: center;
+    padding-inline: 9vw; z-index: var(--z-fixed);
+    transition: background 0.3s, box-shadow 0.3s, height 0.3s;
+}
+.nav-header-scrolled {
+    background: var(--header-bg);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-1);
+    height: 70px;
 }
 
-function toggleLanguage() {
-    const newLang = document.documentElement.getAttribute('lang') === 'en' ? 'ar' : 'en';
-    setLanguage(newLang);
+.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-name { font-size: 1.5rem; font-weight: 600; color: var(--title-color); }
+.nav-dot { font-size: 2rem; color: var(--first-color); margin-inline-start: 2px; }
+
+.nav-menu { display: flex; align-items: center; column-gap: 1.5rem; }
+.nav_menu_list { display: flex; column-gap: 2.5rem; }
+
+.nav-link { color: var(--title-color); font-weight: 500; text-decoration: none; transition: 0.3s; position: relative; }
+.nav-link:hover, .active-link { color: var(--first-color); }
+.active-link::after {
+    content: ''; position: absolute; inset-inline: 0; bottom: -5px; height: 2px;
+    background: var(--first-color); border-radius: 4px; box-shadow: 0 0 10px var(--first-color);
 }
 
-languageToggleBtn.addEventListener('click', toggleLanguage);
+.change-theme { font-size: 1.25rem; color: var(--title-color); transition: 0.3s; line-height: 1; }
+.change-theme:hover { color: var(--first-color); }
 
-// Initialize on load
-setLanguage(currentLang);
+.language-toggle {
+    display: flex; align-items: center; justify-content: center;
+    width: 44px; height: 32px; margin-inline-start: 0.5rem;
+    font-weight: 500; color: var(--title-color);
+    border: 1px solid var(--glass-border); border-radius: 6px; transition: 0.3s;
+}
+.language-toggle:hover { background: var(--first-color); color: #fff; border-color: var(--first-color); }
+
+.nav-menu-btn { display: none; font-size: 1.6rem; color: var(--title-color); }
+
+/* ----- WRAPPER ----- */
+.wrapper { padding-inline: 9vw; margin-top: var(--header-h); }
+
+/* ----- HOME ----- */
+.featured-box { display: flex; align-items: center; min-height: calc(100vh - var(--header-h)); column-gap: 2rem; }
+.featured-text { width: 50%; }
+
+.featured-text-card span {
+    background: linear-gradient(90deg, var(--second-color), var(--first-color));
+    color: #fff; padding: 5px 15px; font-size: 0.9rem; border-radius: 5px; font-weight: 600; letter-spacing: 1px;
+}
+.featured-name { font-size: 3.2rem; font-weight: 700; color: var(--title-color); margin: 1.5rem 0 0.5rem; line-height: 1.25; }
+.typedText { color: var(--first-color); }
+.featured-tagline { font-size: 1.05rem; color: var(--text-color-light); max-width: 520px; line-height: 1.6; margin-bottom: 1rem; }
+.featured-text-info { margin-bottom: 2.5rem; line-height: 1.7; max-width: 60ch; }
+.featured-text-btn { display: flex; flex-wrap: wrap; gap: 1rem; }
+.social_icons { display: flex; column-gap: 1.5rem; margin-top: 3rem; }
+
+.icon {
+    display: flex; justify-content: center; align-items: center;
+    width: 45px; height: 45px; border-radius: 50%;
+    background: var(--glass-bg); border: 1px solid var(--glass-border);
+    color: var(--first-color); font-size: 1.2rem; transition: 0.4s;
+}
+.icon:hover { background: var(--first-color); color: #fff; box-shadow: 0 0 15px var(--first-color); transform: translateY(-5px); }
+
+.featured-image { width: 50%; display: flex; justify-content: center; }
+.image {
+    width: 400px; height: 400px; border-radius: 50%; padding: 10px;
+    background: linear-gradient(180deg, var(--first-color), transparent);
+    animation: profileAnimate 8s ease-in-out infinite;
+}
+.image img { width: 100%; height: 100%; border-radius: inherit; object-fit: cover; border: 5px solid var(--body-color); }
+
+@keyframes profileAnimate {
+    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+/* ----- SECTIONS ----- */
+.section { padding-block: 6rem; }
+.top-header { text-align: center; margin-bottom: 4rem; }
+.top-header h2 { font-size: 2.5rem; color: var(--title-color); margin-bottom: 0.5rem; }
+.top-header span { color: var(--text-color-light); font-size: 0.9rem; }
+
+.row { display: flex; justify-content: space-between; column-gap: 4rem; }
+.col { display: flex; flex-direction: column; width: 50%; }
+
+/* ABOUT */
+.about-info {
+    background: var(--container-color); padding: 2.5rem; border-radius: 1.5rem;
+    border: 1px solid var(--glass-border); line-height: 1.7; transition: 0.4s;
+}
+.about-info:hover { border-color: var(--first-color); box-shadow: 0 0 20px var(--first-glow); }
+.about-info h3 { margin-bottom: 1rem; color: var(--title-color); }
+.about-btn { margin-top: 1.5rem; }
+
+.skills-box { margin-bottom: 2rem; }
+.skills-header h3 { color: var(--title-color); margin-bottom: 1rem; font-size: 1.25rem; }
+.skills-list { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.skills-list span {
+    padding: 0.6rem 1.2rem; background: var(--container-color); border: 1px solid var(--glass-border);
+    border-radius: 0.5rem; font-size: 0.9rem; color: var(--title-color); transition: 0.3s; cursor: default;
+}
+.skills-list span:hover { background: var(--first-color); border-color: var(--first-color); color: #fff; transform: translateY(-3px); }
+
+/* PROJECTS */
+.project-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.project-card {
+    background: var(--container-color); border-radius: 1.5rem; border: 1px solid var(--glass-border);
+    overflow: hidden; transition: transform 0.4s, box-shadow 0.4s;
+    display: flex; flex-direction: column; text-align: start; height: 100%;
+}
+.project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-2); }
+.project-img { width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid var(--glass-border); }
+.project-info { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+.project-info h3 { font-size: 1.25rem; color: var(--title-color); margin-bottom: 0.5rem; }
+.project-info p { font-size: 0.9rem; margin-bottom: 1rem; flex-grow: 1; line-height: 1.6; }
+.project-tech { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.project-tech span {
+    font-size: 0.8rem; padding: 4px 10px; background: var(--glass-bg); border-radius: 4px;
+    color: var(--first-color); border: 1px solid var(--glass-border);
+}
+.project-links { display: flex; gap: 1rem; }
+.btn-small {
+    display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem;
+    border: 1px solid var(--first-color); border-radius: 0.5rem;
+    text-decoration: none; color: var(--title-color); font-size: 0.9rem; transition: 0.3s;
+}
+.btn-small:hover { background: var(--first-color); color: #fff; }
+
+/* SERVICES */
+.service-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.service-box {
+    background: var(--container-color); padding: 2.5rem; border-radius: 1.5rem; text-align: center;
+    border: 1px solid var(--glass-border); transition: 0.4s; position: relative; overflow: hidden; z-index: 1;
+}
+.service-box::before {
+    content: ''; position: absolute; top: 0; inset-inline-start: 0; width: 0; height: 100%;
+    background: var(--first-color); z-index: -1; transition: 0.4s;
+}
+.service-box:hover::before { width: 100%; }
+.service-box i { font-size: 2.5rem; color: var(--first-color); margin-bottom: 1.5rem; display: block; transition: 0.4s; }
+.service-box h3 { color: var(--title-color); font-size: 1.4rem; margin-bottom: 1rem; transition: 0.4s; }
+.service-box p { font-size: 0.95rem; line-height: 1.6; transition: 0.4s; }
+.service-box:hover i, .service-box:hover h3, .service-box:hover p { color: #fff; }
+
+/* CONTACT */
+.contact-info {
+    background: var(--container-color); padding: 2.5rem; border-radius: 1.5rem;
+    border: 1px solid var(--glass-border); display: flex; flex-direction: column; gap: 1.5rem; height: 100%;
+}
+.contact-title { color: var(--title-color); font-size: 1.8rem; }
+[dir="rtl"] .uil-corner-right-down { transform: scaleX(-1); display: inline-block; }
+.contact-info p { display: flex; align-items: center; }
+.contact-info a { display: inline-flex; align-items: center; gap: 1rem; text-decoration: none; transition: 0.3s; }
+.contact-info a:hover { color: var(--first-color); }
+.contact-info i { color: var(--first-color); font-size: 1.5rem; }
+
+.form-input-group { display: flex; gap: 1rem; margin-bottom: 1rem; }
+.input-field, textarea {
+    width: 100%; background: var(--container-color); border: 1px solid var(--glass-border);
+    padding: 1rem; border-radius: 0.8rem; color: var(--title-color); outline: none; transition: 0.3s; font-size: 1rem;
+}
+.input-field::placeholder, textarea::placeholder { color: var(--text-color-light); }
+.input-field:focus, textarea:focus { border-color: var(--first-color); box-shadow: 0 0 10px var(--first-glow); }
+textarea { resize: vertical; min-height: 160px; height: 180px; margin-bottom: 1rem; display: block; }
+.form-status { margin-top: 1rem; min-height: 1.5em; font-size: 0.95rem; }
+.form-status.ok { color: #22a06b; }
+.form-status.error { color: #e5484d; }
+
+/* FOOTER */
+footer {
+    background: var(--container-color); padding-block: 4rem; text-align: center;
+    margin-top: 5rem; border-top: 1px solid var(--glass-border);
+}
+.top-footer { color: var(--title-color); font-weight: 600; font-size: 1.2rem; }
+.footer-menu { display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-block: 2rem; }
+.footer-menu a { color: var(--title-color); text-decoration: none; transition: 0.3s; }
+.footer-menu a:hover { color: var(--first-color); }
+.footer-social-icons { display: flex; justify-content: center; gap: 1.5rem; }
+.bottom-footer { margin-top: 2rem; color: var(--text-color-light); font-size: 0.9rem; }
+.bottom-footer a { text-decoration: none; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .image, .image img { width: 320px; height: 320px; }
+    .project-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+    .nav-button { display: none; }
+    .nav-menu-btn { display: block; }
+
+    .nav-menu {
+        position: fixed; top: var(--header-h); inset-inline: 0;
+        height: calc(100dvh - var(--header-h));
+        flex-direction: column; justify-content: center; align-items: center; row-gap: 2rem;
+        background: var(--header-bg);
+        -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+        opacity: 0; visibility: hidden; pointer-events: none;
+        transition: opacity 0.3s, visibility 0.3s;
+    }
+    .nav-menu.responsive { opacity: 1; visibility: visible; pointer-events: auto; }
+    .nav_menu_list { flex-direction: column; align-items: center; gap: 2rem; }
+
+    .featured-box { flex-direction: column; justify-content: center; min-height: 100vh; height: auto; padding-block: 2rem; text-align: center; }
+    .featured-text { width: 100%; order: 2; }
+    .featured-tagline, .featured-text-info { margin-inline: auto; }
+    .featured-text-btn, .social_icons { justify-content: center; }
+    .social_icons { margin-top: 2rem; }
+    .featured-image { order: 1; width: 100%; margin-bottom: 2rem; }
+    .image, .image img { width: 180px; height: 180px; }
+
+    .row { flex-direction: column; gap: 2rem; }
+    .col { width: 100%; }
+    .project-container, .service-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 540px) {
+    .featured-name { font-size: 2.2rem; }
+    .form-input-group { flex-direction: column; }
+    .section { padding-block: 4rem; }
+    .about-info, .contact-info, .service-box { padding: 1.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+}
